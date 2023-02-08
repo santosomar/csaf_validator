@@ -7,6 +7,10 @@ A Python-based program used to validate a Common Security Advisory Framework (CS
 - Python 3
 - `jsonschema` library
 
+```
+pip install -r requirements.txt
+```
+
 ## Usage:
 
 ```
