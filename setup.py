@@ -17,3 +17,24 @@ setup(
         'jsonschema'
     ]
 )
+
+setup(
+    name='csaf_validator',
+    version='0.1.0',
+    packages=find_packages(),
+    url='https://github.com/santosomar/csaf_validator',
+    license='MIT',
+    author='Omar Santos',
+    description='A package to validate CSAF JSON files against the CSAF 2.0 Schema',
+    long_description=long_description,
+    long_description_content_type='text/markdown',
+    install_requires=[
+        'jsonschema',
+        'argparse',
+    ],
+    entry_points={
+        'console_scripts': [
+            'csaf_validator=csaf_validator:main'
+        ]
+    }
+)
