@@ -8,7 +8,7 @@ A Python-based program used to validate a Common Security Advisory Framework (CS
 ## Usage:
 
 ```
-usage: csaf_validator2.py [-h] json_file
+usage: csaf_validator.py [-h] json_file
 
 Validates a CSAF JSON file against the CSAF 2.0 Schema
 
