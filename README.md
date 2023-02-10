@@ -29,7 +29,7 @@ optional arguments:
  
  ```
  $ python3 csaf_validator2.py cisco-sa-iox-8whGn5dL.json
- cisco.json is valid against the CSAF 2.0 Schema.
+ cisco-sa-iox-8whGn5dL.json is valid against the CSAF 2.0 Schema.
  ```
 
 ## How the Script Works
