@@ -1,10 +1,15 @@
 FROM python:3.8
 
+ENV PATH=/app/bin:$PATH
+
 WORKDIR /app
 
-COPY csaf_validator.py /app
-COPY requirements.txt /app
+COPY . /app/
 
-RUN pip3 install -r requirements.txt
+RUN set -e; \
+    python3 -m venv /app; \
+    . /app/bin/activate; \
+    python3 -m pip install --upgrade pip setuptools; \
+    pip3 install -e /app;
 
-CMD [ "python", "./csaf_validator.py", "--input", "cisco.json" ]
+CMD [ "csaf-validator", "/app/examples/cisco_example.json" ]

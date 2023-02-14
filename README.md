@@ -3,18 +3,37 @@
 # CSAF Validator
 A Python-based program used to validate a Common Security Advisory Framework (CSAF) JSON file against the CSAF 2.0 schema.
 
-## Requirements
+## Main Requirements
 - Python 3
 - `jsonschema` library
 
+## Installation
+
+Make sure you have the latest version of setuptools before installing.
+
 ```
-pip install -r requirements.txt
+pip3 install --upgrade git+https://github.com/santosomar/csaf_validator
+```
+
+### Make an editable install if you want to make changes/enhancements to the code
+
+```
+git clone https://github.com/santosomar/csaf_validator
+cd csaf_validator
+pip3 install --upgrade -e .
+```
+
+## Docker example
+
+```
+docker build --tag csaf_validator .
+docker run --rm -it csaf_validator
 ```
 
 ## Usage:
 
 ```
-usage: csaf_validator.py [-h] json_file
+usage: csaf-validator [-h] json_file
 
 Validates a CSAF JSON file against the CSAF 2.0 Schema
 
@@ -28,7 +47,7 @@ optional arguments:
  Example:
  
  ```
- $ python3 csaf_validator2.py cisco-sa-iox-8whGn5dL.json
+ $ csaf-validator cisco-sa-iox-8whGn5dL.json
  cisco-sa-iox-8whGn5dL.json is valid against the CSAF 2.0 Schema.
  ```
 

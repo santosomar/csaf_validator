@@ -5,26 +5,26 @@
 import argparse
 import json
 import jsonschema
+import importlib.resources as pkg_resources
 import urllib.request
 
-def validate_json(json_file):
+
+def validate_json(json_file, use_packaged_schema):
     '''
     Validate a CSAF ROLIE feed JSON file against the Schema
     '''
     # Download the Schema
     schema_url = "https://docs.oasis-open.org/csaf/csaf/v2.0/os/schemas/csaf_json_schema.json"
-    
-    with urllib.request.urlopen(schema_url) as url:
-    # Read the Schema file and save it locally
-        schema_data = url.read().decode()
-        with open('csaf_json_schema.json', 'w') as schema_file:
-            schema_file.write(schema_data)
 
-    # Load the Schema
-    with open('csaf_json_schema.json') as schema_file:
-        schema = json.load(schema_file)
+    schema = None
+    if use_packaged_schema:
+        schema = pkg_resources.read_text(__package__, "csaf_json_schema.json")
+        schema = json.loads(schema)
+    else:
+        with urllib.request.urlopen(schema_url) as url:
+            schema = json.loads(url.read().decode())
 
-    with open(json_file) as file:
+    with open(json_file, encoding='utf-8') as file:
         data = json.load(file)
 
     # Validate the JSON file against the Schema
@@ -34,8 +34,15 @@ def validate_json(json_file):
     except jsonschema.ValidationError as error:
         print(f"{json_file} is invalid against the CSAF 2.0 Schema.\n{error}")
 
-if __name__ == '__main__':
+
+def main():
     parser = argparse.ArgumentParser(description='Validates a CSAF JSON file against the CSAF 2.0 Schema')
     parser.add_argument('json_file', type=str, help='JSON file to be validated')
+    parser.add_argument('--use-packaged-schema', action='store_true', help='Uses an internal copy of csaf_json_schema.json so that no network connection is needed. Note that this copy may be out of date!')
     args = parser.parse_args()
-    validate_json(args.json_file)
+
+    validate_json(args.json_file, args.use_packaged_schema)
+
+
+if __name__ == '__main__':
+    main()
