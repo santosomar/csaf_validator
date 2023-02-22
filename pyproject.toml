@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "csaf_validator"
+authors = [
+    {name = "Omar Santos"},
+]
+description = "A Python-based program used to validate a Common Security Advisory Framework (CSAF) JSON file against the CSAF 2.0"
+readme = "README.md"
+requires-python = ">=3.7"
+keywords = ["CSAF", "Common Security Advisory Framework"]
+license = {text = "GPL-3.0"}
+classifiers = [
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Programming Language :: Python :: 3",
+    "Private :: Do Not Upload",
+]
+dependencies = [
+    "argparse",
+    "jsonschema",
+]
+version = "0.1.0"
+
+[project.urls]
+homepage = "https://github.com/santosomar/csaf_validator"
+documentation = "https://github.com/santosomar/csaf_validator#usage"
+repository = "https://github.com/santosomar/csaf_validator"
+
+[project.scripts]
+csaf-validator = "csaf_validator:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["csaf_validator"]
+
+# This requires setuptools v61.0.0 or greater. If that causes isses we can switch to MANIFEST.in.
+[tool.setuptools.package-data]
+mypkg = ["*.json"]
