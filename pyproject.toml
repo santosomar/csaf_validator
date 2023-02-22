@@ -11,9 +11,9 @@ description = "A Python-based program used to validate a Common Security Advisor
 readme = "README.md"
 requires-python = ">=3.7"
 keywords = ["CSAF", "Common Security Advisory Framework"]
-license = {text = "GPL-3.0"}
+license = {text = "MIT"}
 classifiers = [
-    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
     "Private :: Do Not Upload",
 ]
