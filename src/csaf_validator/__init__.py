@@ -18,7 +18,7 @@ def validate_json(json_file, use_packaged_schema):
 
     schema = None
     if use_packaged_schema:
-        schema = pkg_resources.read_text(__package__, "csaf_json_schema.json")
+        schema = pkg_resources.read_text(__package__, "csaf_strict_json_schema.json")
         schema = json.loads(schema)
     else:
         with urllib.request.urlopen(schema_url) as url:
