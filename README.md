@@ -1,7 +1,9 @@
 ![Python versions](https://img.shields.io/pypi/pyversions/danger-python)
 
-# CSAF Validator
-A Python-based program used to validate a Common Security Advisory Framework (CSAF) JSON file against the CSAF 2.0 schema.
+# CSAF JSON Validator
+A Python-based program used to validate a Common Security Advisory Framework (CSAF) JSON file against the CSAF 2.0 JSON schema. This tool does not perform additional business logic validation. 
+
+**Note:** For business logic validation, you can use the [secvisogram validator Javascript library and service](https://github.com/secvisogram/csaf-validator-service)
 
 ## Main Requirements
 - Python 3
