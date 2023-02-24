@@ -18,7 +18,6 @@ classifiers = [
     "Private :: Do Not Upload",
 ]
 dependencies = [
-    "argparse",
     "jsonschema",
 ]
 version = "0.1.0"
